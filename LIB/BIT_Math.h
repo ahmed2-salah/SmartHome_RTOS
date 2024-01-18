@@ -1,4 +1,4 @@
-
+/*Header File for Bit Math macros*/
 #ifndef BIT_MATH_H_
 #define BIT_MATH_H_
 
