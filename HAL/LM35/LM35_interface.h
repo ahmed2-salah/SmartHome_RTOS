@@ -1,6 +1,6 @@
 /*
- * LM35_interface.h
- *
+ *  LM35_interface.h
+ *  AhmedSalah
  *  Created on: Mar 13, 2023
  *      Author: A-plus store
  */
