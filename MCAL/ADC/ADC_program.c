@@ -36,7 +36,7 @@ static u8 ADC_u8ChainConversionIndex = 0;				/*Global variable to carry the curr
 
 static u8 ADC_u8ISRSource;
 
-/*State of ADC initial IDLE*/
+
 u8 ADC_u8BusyState = ADC_IDLE;
 
 
