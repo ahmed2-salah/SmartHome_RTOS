@@ -7,8 +7,6 @@
 /*************** Version: 1.00		  *******************/
 /********************************************************/
 /********************************************************/
-
-
 #include "BIT_Math.h"
 #include "STD_TYPES.h"
 
@@ -18,7 +16,7 @@
 #include "DIO_interface.h"
 #include "SW_interface.h"
 
-
+/********************************************************/
 void SW_voidPinInit(SW_Type *SW_structConfig)
 {
 	DIO_enumSetPinDirection(SW_structConfig->Port,SW_structConfig->Pin,SW_PIN_INPUT);
