@@ -12,8 +12,10 @@
 7. UART communication ()
 
 ## System Shared resources
-![Tasks1](https://github.com/ahmed2-salah/SmartHome_RTOS/assets/90197922/384719a6-290d-49a0-a7b9-5dc1e3ef73cb)
 1. LED_sw_State
 2. door_sw_State
 3. Temp_value
+
+## System design
+![Tasks1](https://github.com/ahmed2-salah/SmartHome_RTOS/assets/90197922/384719a6-290d-49a0-a7b9-5dc1e3ef73cb)
 
