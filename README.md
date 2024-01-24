@@ -10,3 +10,11 @@
 5. LCD display ()
 6. Temperature Read()
 7. UART communication ()
+
+## System Shared resources
+
+
+1. LED_sw_State
+2. door_sw_State
+3. Temp_value
+
