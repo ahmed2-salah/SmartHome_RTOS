@@ -7,7 +7,6 @@
 /*************** Version: 2.00		  *******************/
 /********************************************************/
 /********************************************************/
-
 #include "BIT_Math.h"
 #include "STD_TYPES.h"
 
@@ -37,6 +36,9 @@ static u8 USART_u8State= USART_IDEL ;
 /*Global variable to indicate for the current Data index of the buffer*/
 static u8 USART_u8Index;
 
+
+
+/********************************************************/
 void USART_voidInit (void)
 {
 	/* We will adjust this value according to the configrations then store it in UCSRC in one operation */
