@@ -27,10 +27,15 @@
 #include "Buzzer_interface.h"
 /********************************************************/
 
-/*Free RTOS includes*/
-#include"FreeRTOS.h"
-#include"task.h"
-#include "semphr.h"
+/*Service Layer includes*/
+
+#include"BuzzerControl.h"
+#include"doorReadSensor.h"
+#include"LCDdisplay.h"
+#include"LEDControl.h"
+#include"SwitchHandle.h"
+#include"TempRead.h"
+#include"UARTcommunication.h"
 
 /********************************************************/
 
@@ -108,155 +113,4 @@ void main(void)
 	}
 }
 /********************************************************/
-void SwitchHandle(void *pv)
-{
-	u8 Local_u8_semState1; /*Variable to store return state of SemTake*/
 
-	while(1)
-	{
-		/*Taking semaphoreA*/
-		Local_u8_semState1=xSemaphoreTake(SemA,0);
-		if(Local_u8_semState1==pdPASS)
-		{
-			/*Reading SW State & access Led_SW_state shared resource */
-			Led_SW_state=SW_u8GetPressed(&SWConfig);
-			vTaskDelay(50);
-		}
-	}
-
-}
-/********************************************************/
-void LEDControl(void *pv)
-{
-	u8 Local_u8_semState1; /*Variable to store return state of SemTake*/
-
-	while(1)
-	{
-		/*Taking semaphoreA*/
-		Local_u8_semState1=xSemaphoreTake(SemA,0);
-		if(Local_u8_semState1==pdPASS)
-		{
-			/*checking on Led_SW_state & access shared resource */
-			if(Led_SW_state==SW_PRESSED)
-			{
-				LED_voidPinToggle(&LedConfig);
-			}
-
-		}
-
-	}
-}
-/********************************************************/
-void doorSensorRead(void *pv)
-{
-	u8 Local_u8_semState1; /*Variable to store return state of SemTake*/
-
-	while(1)
-	{
-		/*Taking semaphoreB*/
-		Local_u8_semState1=xSemaphoreTake(SemB,0);
-		if(Local_u8_semState1==pdPASS)
-		{
-			/*Reading door state & access shared resource door_SW_state*/
-			door_SW_state=SW_u8GetPressed(&SWConfig_d);
-
-			vTaskDelay(50);
-		}
-
-	}
-}
-/********************************************************/
-void BuzzerControl(void *pv)
-{
-	u8 Local_u8_semState1; /*Variable to store return state of SemTake*/
-
-	while(1)
-	{
-		/*Taking semaphoreB*/
-		Local_u8_semState1=xSemaphoreTake(SemB,0);
-		if(Local_u8_semState1==pdPASS)
-		{
-			/*Check on door_SW & access door_SW_state shared resource*/
-			if(door_SW_state==SW_PRESSED)
-			{
-				BUZZ_voidTurnOn(&buzzerConfig);
-			}
-			else
-			{
-				BUZZ_voidTurnOff(&buzzerConfig);
-			}
-		}
-	}
-}
-/********************************************************/
-void TempRead(void *pv)
-{
-	while(1)
-	{
-		/*Read temperature periodically every 100ms*/
-		temp_value=LM35_u8GetTemperatureValue(0, 10);
-		vTaskDelay(100);
-	}
-}
-/********************************************************/
-void LCDdisplay(void *pv)
-{
-	while(1)
-	{
-		/*Led State*/
-		CLCD_voidGoToXY(0,0);
-		if(Led_SW_state==LED_HIGH)
-		{
-			CLCD_voidSendString("Led is ON");
-		}
-		else
-		{
-			CLCD_voidSendString("Led is OFF");
-		}
-
-		/*Door State*/
-		CLCD_voidGoToXY(1,0);
-		if(door_SW_state==SW_PRESSED)
-		{
-			CLCD_voidSendString("Door is open");
-		}
-		else
-		{
-			CLCD_voidSendString("Door is close");
-		}
-		/*Temperature Value*/
-		CLCD_voidGoToXY(2,0);
-		CLCD_voidSendData(temp_value);
-	}
-}
-/********************************************************/
-void UARTcommunication(void *pv)
-{
-	while(1)
-	{
-		/*Led State*/
-		if(Led_SW_state==LED_HIGH)
-		{
-			USART_u8SendStringSynch("Led is ON");
-		}
-		else
-		{
-			USART_u8SendStringSynch("Led is OFF");
-		}
-
-		/*Door State*/
-		if(door_SW_state==SW_PRESSED)
-		{
-			USART_u8SendStringSynch("Door is open");
-		}
-		else
-		{
-			USART_u8SendStringSynch("Door is close");
-		}
-		/*Temperature Value*/
-		USART_u8SendData(temp_value);
-
-		vTaskDelay(500);
-	}
-}
-/********************************************************/
