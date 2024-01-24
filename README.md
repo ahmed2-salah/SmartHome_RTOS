@@ -19,3 +19,6 @@
 ## System design
 ![Tasks1](https://github.com/ahmed2-salah/SmartHome_RTOS/assets/90197922/384719a6-290d-49a0-a7b9-5dc1e3ef73cb)
 
+## Simulation
+![Simulation](https://github.com/ahmed2-salah/SmartHome_RTOS/assets/90197922/3e656bb6-7fb9-4275-8c6b-8b54b2d6148b)
+
