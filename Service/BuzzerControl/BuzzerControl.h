@@ -3,7 +3,7 @@
 
 
 
-void doorSensorRead(void *pv);
+void BuzzerControl(void *pv);
 
 
 #endif 
