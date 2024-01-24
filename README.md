@@ -17,6 +17,9 @@
 3. Temp_value
 
 ## System design
+* Creating Binary SemaphoreA to sychronize between  LED Control  () and SwitchHandle ().
+* Creating Binary SemaphoreB to sychronize between  doorSensorRead () and Buzzer Control ().
+* Creating counting Semaphore to protect LCD (Hardware shared resource) with intial cout = 3
 ![Tasks1](https://github.com/ahmed2-salah/SmartHome_RTOS/assets/90197922/384719a6-290d-49a0-a7b9-5dc1e3ef73cb)
 
 ## Simulation
