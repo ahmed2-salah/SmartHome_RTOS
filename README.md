@@ -29,3 +29,4 @@
 ![Task_Table](https://github.com/ahmed2-salah/SmartHome_RTOS/assets/90197922/ae9bee23-d315-46cf-b90f-c5956b86a35d)
 
 ## Tasks Simulation
+![graph](https://github.com/ahmed2-salah/SmartHome_RTOS/assets/90197922/d0abadca-fc46-4f07-9148-6b9be714a1c5)
