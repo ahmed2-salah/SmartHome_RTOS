@@ -1,5 +1,7 @@
 #include"TempRead.h"
 
+/*HAL includes*/
+#include "LM35_interface.h"
 
 /*Free RTOS includes*/
 #include"FreeRTOS.h"
