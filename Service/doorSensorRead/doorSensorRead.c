@@ -1,5 +1,9 @@
 
 #include "doorSensorRead.h"
+
+/*HAL includes*/
+#include "SW_interface.h"
+
 /*Free RTOS includes*/
 #include"FreeRTOS.h"
 #include"task.h"
