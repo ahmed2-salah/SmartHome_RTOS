@@ -1,5 +1,7 @@
 #include"LCDdisplay.h"
 
+/*HAL includes*/
+#include "CLCD_interface.h"
 
 /*Free RTOS includes*/
 #include"FreeRTOS.h"
