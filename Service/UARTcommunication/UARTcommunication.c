@@ -1,5 +1,7 @@
-#include"TempRead.h"
+#include"UARTcommunication.h"
 
+/*MCAL*/
+#include"UART.h"
 
 /*Free RTOS includes*/
 #include"FreeRTOS.h"
